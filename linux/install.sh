@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
-SRC="$HERE/../site"
+SRC="$HERE/../dist/standalone"
+ICON="$HERE/../src/icons/kotoba-icon-512.png"
+[ -f "$SRC/kotoba.html" ] || { echo "Run python3 tools/build.py first (or use the Kotoba AppImage from Releases)."; exit 1; }
 DEST="${XDG_DATA_HOME:-$HOME/.local/share}/kotoba"
 BIN="$HOME/.local/bin"
 APPS="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
 mkdir -p "$DEST" "$BIN" "$APPS"
 cp "$SRC/kotoba.html" "$DEST/kotoba.html"
-cp "$SRC/kotoba-icon-512.png" "$DEST/kotoba.png"
+cp "$ICON" "$DEST/kotoba.png"
 cat > "$BIN/kotoba" <<EOF
 #!/usr/bin/env bash
 URL="file://$DEST/kotoba.html"

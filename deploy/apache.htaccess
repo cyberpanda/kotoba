@@ -1,0 +1,17 @@
+# Kotoba – Apache (.htaccess). build.py copies this into dist/web/.htaccess.
+AddType application/manifest+json .webmanifest
+AddType font/woff .woff
+DirectoryIndex index.html
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json application/manifest+json image/svg+xml
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|woff)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "(index\.html|sw\.js|manifest\.webmanifest|version\.json)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

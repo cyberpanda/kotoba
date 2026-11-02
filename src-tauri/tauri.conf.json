@@ -1,0 +1,80 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Kotoba",
+  "version": "../package.json",
+  "identifier": "app.cyberpanda.kotoba",
+  "build": {
+    "frontendDist": "../dist/web",
+    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Kotoba",
+        "width": 1200,
+        "height": 820,
+        "minWidth": 360,
+        "minHeight": 560,
+        "resizable": true,
+        "center": true,
+        "backgroundColor": "#0c1222",
+        "dragDropEnabled": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "category": "Education",
+    "publisher": "CyberPanda",
+    "copyright": "© 2026 CyberPanda – MIT License",
+    "shortDescription": "Learn Japanese interactively",
+    "longDescription": "Kotoba (言葉) – learn Japanese with lessons, a learning path to JLPT N5, reading, sentence building, games, an RPG across Japan and calm chill modes. Works offline, no ads, no tracking.",
+    "homepage": "https://github.com/CyberPanda/kotoba",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "macOS": {
+      "minimumSystemVersion": "11.0",
+      "signingIdentity": null,
+      "entitlements": null
+    },
+    "iOS": {
+      "minimumSystemVersion": "15.0"
+    },
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper"
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "displayLanguageSelector": true,
+        "languages": [
+          "English",
+          "German"
+        ]
+      }
+    },
+    "linux": {
+      "appimage": {
+        "bundleMediaFramework": true
+      },
+      "deb": {
+        "section": "education"
+      }
+    },
+    "android": {
+      "minSdkVersion": 24,
+      "versionCode": 20000
+    }
+  }
+}

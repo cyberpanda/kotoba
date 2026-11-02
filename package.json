@@ -1,0 +1,35 @@
+{
+  "name": "kotoba",
+  "productName": "Kotoba",
+  "version": "2.0.0",
+  "description": "Learn Japanese interactively – lessons, learning path, games, RPG and chill modes. Offline, no ads, no tracking.",
+  "private": true,
+  "license": "MIT",
+  "author": "CyberPanda",
+  "homepage": "https://github.com/CyberPanda/kotoba",
+  "scripts": {
+    "build": "python3 tools/build.py || python tools/build.py",
+    "serve": "python3 -m http.server 8080 --directory dist/web",
+    "qa": "python3 tools/qa.py",
+    "tauri": "tauri",
+    "app:dev": "tauri dev",
+    "app:build": "tauri build",
+    "app:mac": "tauri build --target universal-apple-darwin",
+    "ios:init": "tauri ios init",
+    "ios:dev": "tauri ios dev",
+    "ios:build": "tauri ios build --export-method app-store-connect",
+    "ios:adhoc": "tauri ios build --export-method release-testing",
+    "icons": "python3 tools/icons.py",
+    "icons:tauri": "tauri icon src/icons/kotoba-icon-1024.png",
+    "android:init": "tauri android init",
+    "android:dev": "tauri android dev",
+    "android:apk": "tauri android build --apk",
+    "android:aab": "tauri android build --aab"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.9.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
